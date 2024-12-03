@@ -1,0 +1,16 @@
+module RCA(
+    input[3:0] RCA_A,
+    input[3:0] RCA_B,
+    input RCA_Ci,
+    output[3:0] RCA_S,
+    output RCA_Co
+    );
+    
+    logic t1, t2, t3;
+    
+    FA FA0 (.FA_A(RCA_A[0]), .FA_B(RCA_B[0]), .FA_S(RCA_S[0]), .FA_Ci(RCA_Ci), .FA_Co(t1));
+    FA FA1 (.FA_A(RCA_A[1]), .FA_B(RCA_B[1]), .FA_S(RCA_S[1]), .FA_Ci(t1), .FA_Co(t2));
+    FA FA2 (.FA_A(RCA_A[2]), .FA_B(RCA_B[2]), .FA_S(RCA_S[2]), .FA_Ci(t2), .FA_Co(t3));
+    FA FA3 (.FA_A(RCA_A[3]), .FA_B(RCA_B[3]), .FA_S(RCA_S[3]), .FA_Ci(t3), .FA_Co(RCA_Co));    
+        
+endmodule
