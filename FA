@@ -1,0 +1,12 @@
+module FA(
+    input FA_A,
+    input FA_B,
+    input FA_Ci,
+    output FA_Co,
+    output FA_S
+    );
+    
+    assign FA_Co = (FA_B & FA_Ci | FA_A & FA_Ci | FA_A & FA_B);
+    assign FA_S = (FA_A ^ FA_B ^ FA_Ci);
+    
+endmodule
